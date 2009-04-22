@@ -182,15 +182,15 @@ function sqlite3_enable_shared_cache(Value: integer): integer; cdecl; external S
 function SQLite3_create_collation(db: TSQLiteDB; Name: PAnsiChar; eTextRep: integer;
   UserData: pointer; xCompare: TCollateXCompare): integer; cdecl; external SQLiteDLL name 'sqlite3_create_collation';
 
-function SQLiteFieldType(SQLiteFieldTypeCode: Integer): AnsiString;
-function SQLiteErrorStr(SQLiteErrorCode: Integer): AnsiString;
+function SQLiteFieldType(SQLiteFieldTypeCode: Integer): String;
+function SQLiteErrorStr(SQLiteErrorCode: Integer): String;
 
 implementation
 
 uses
   SysUtils;
 
-function SQLiteFieldType(SQLiteFieldTypeCode: Integer): AnsiString;
+function SQLiteFieldType(SQLiteFieldTypeCode: Integer): String;
 begin
   case SQLiteFieldTypeCode of
     SQLITE_INTEGER: Result := 'Integer';
@@ -203,7 +203,7 @@ begin
   end;
 end;
 
-function SQLiteErrorStr(SQLiteErrorCode: Integer): AnsiString;
+function SQLiteErrorStr(SQLiteErrorCode: Integer): String;
 begin
   case SQLiteErrorCode of
     SQLITE_OK: Result := 'Successful result';

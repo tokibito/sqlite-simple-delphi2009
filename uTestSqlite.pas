@@ -41,7 +41,7 @@ var
 slDBpath: string;
 sldb: TSQLiteDatabase;
 sltb: TSQLIteTable;
-sSQL: String;
+sSQL: string;
 Notes: String;
 
 begin
@@ -67,7 +67,7 @@ sldb.execsql('CREATE INDEX TestTableName ON [testtable]([Name]);');
 //begin a transaction
 sldb.BeginTransaction;
 
-sSQL := 'INSERT INTO testtable(Name,OtherID,Number,Notes) VALUES ("Some Name",4,587.6594,"Here are some notes");';
+sSQL := 'INSERT INTO testtable(Name,OtherID,Number,Notes) VALUES ("‰½‚©‚Ì–¼‘O",4,587.6594,"“ú–{Œê‚Å‚àok‚Å‚·");';
 //do the insert
 sldb.ExecSQL(sSQL);
 

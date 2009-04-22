@@ -3,6 +3,8 @@ syntax: glob
 *.dcu
 *.local
 *.identcache
+*.db
+*.swp
 
 syntax: regexp
 __history/.*

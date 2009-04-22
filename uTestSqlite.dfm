@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 199
   Top = 280
-  Width = 541
-  Height = 308
   Caption = 'Test SQLite 3'
+  ClientHeight = 274
+  ClientWidth = 533
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
