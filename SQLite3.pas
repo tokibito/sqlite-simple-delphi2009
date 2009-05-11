@@ -178,6 +178,10 @@ function sqlite3_bind_parameter_index(hStmt: TSqliteStmt; zName: PAnsiChar): int
 
 function sqlite3_enable_shared_cache(Value: integer): integer; cdecl; external SQLiteDLL name 'sqlite3_enable_shared_cache';
 
+// extension option
+function sqlite3_enable_load_extension(db: TSQLiteDB; onoff: Boolean): integer; cdecl; external SQLiteDLL name 'sqlite3_enable_load_extension';
+function sqlite3_load_extension(db: TSQLiteDB; zFile, zProc: PAnsiChar; pzErrMsg: PPChar): integer; cdecl; external SQLiteDLL name 'sqlite3_load_extension';
+
 //user collate definiton
 function SQLite3_create_collation(db: TSQLiteDB; Name: PAnsiChar; eTextRep: integer;
   UserData: pointer; xCompare: TCollateXCompare): integer; cdecl; external SQLiteDLL name 'sqlite3_create_collation';

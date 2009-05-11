@@ -152,6 +152,10 @@ type
     procedure AddParamFloat(name: string; value: double);
     procedure AddParamText(name: string; value: string);
     procedure AddParamNull(name: string);
+    // extension
+    procedure EnableExtension;
+    procedure DisableExtension;
+    procedure LoadExtention(FileName: string);
     property DB: TSQLiteDB read fDB;
   published
     property IsTransactionOpen: boolean read fInTrans;
@@ -870,6 +874,21 @@ begin
   finally
     ParamsClear;
   end;
+end;
+
+procedure TSQLiteDatabase.EnableExtension;
+begin
+  sqlite3_enable_load_extension(FDB, True);
+end;
+
+procedure TSQLiteDatabase.DisableExtension;
+begin
+  sqlite3_enable_load_extension(FDB, False);
+end;
+
+procedure TSQLiteDatabase.LoadExtention(FileName: string);
+begin
+  sqlite3_load_extension(FDB, PAnsiChar(UTF8Encode(FileName)), nil, nil);
 end;
 
 //database rows that were changed (or inserted or deleted) by the most recent SQL statement
